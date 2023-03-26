@@ -396,7 +396,7 @@ export async function getCanvasKey () {
     },
   ])) as { key: string };
 
-  fs.mkdirSync(paths.config, { recursive: true })
+fs.mkdirSync(paths.config, { recursive: true })
 
   fs.writeFileSync(keyPath, key.key, "utf8")
 
