@@ -137,9 +137,9 @@ function assignmentToNewPage(assignment: Assignment) {
       ],
     },
     "Due Date": {
-      date: {
-        start: assignment.due_at ?? new Date().toISOString(),
-      },
+      date: assignment.due_at ? {
+        start: assignment.due_at,
+      } : null,
     },
     "Assignment Id": { number: assignment.id as number },
     "Subject Id": {
@@ -157,9 +157,9 @@ function assignmentToUpdatedPage(assignment: Assignment & { pageId: string }) {
     page_id: assignment.pageId,
     properties: {
       "Due Date": {
-        date: {
+        date: assignment.due_at ? {
           start: assignment.due_at ?? new Date().toISOString(),
-        },
+        } : null,
       },
       "Assignment URL": {
         url: assignment.html_url ?? null,
